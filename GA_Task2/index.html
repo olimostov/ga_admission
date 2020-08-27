@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<head>
+  <link href="/normalize.css" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+    crossorigin="anonymous"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    header {
+      text-align: center;
+      color: #fff;
+    }
+    header::before {
+      content: '';
+      background: url('https://source.unsplash.com/LuK-MuZ-yf0/1920x1080')
+        no-repeat center center/cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 677px;
+      z-index: -1;
+      opacity: 0.8;
+    }
+    a {
+      color: #fff;
+    }
+    h1 {
+      font-size: 70px;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+    p {
+      line-height: 2rem;
+      margin: 10px auto 30px auto;
+    }
+    img {
+      margin: 60px 0px 60px 0;
+      border: 7px solid #f4f4f4;
+      border-radius: 20px;
+    }
+    a {
+      text-decoration: none;
+    }
+    .nav {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .read {
+      font-size: 0.7rem;
+      color: #333;
+    }
+    ul {
+      padding: 10px;
+    }
+    li {
+      display: inline;
+      margin: 2rem auto;
+      padding: 0px 20px 0px 20px;
+      font-size: 2rem;
+    }
+    article {
+      max-width: 70%;
+      padding: 20px;
+      margin: 0 auto;
+    }
+    button {
+      padding: 5px 20px;
+      margin: 0 3px 0 0;
+    }
+    /* large tablet & laptop styles */
+    @media screen and (min-width: 960px) {
+      li {
+        margin: 2rem auto;
+        padding: 0px 20px 0px 20px;
+        font-size: 1.5rem;
+      }
+      img {
+        margin: 60px 0px 68px 0;
+      }
+      p {
+        line-height: 1.5rem;
+        margin: 10px auto 30px auto;
+      }
+    }
+    /* desktop styles */
+    @media screen and (min-width: 1200px) {
+      img {
+        margin: 60px 0px 71px 0;
+      }
+      article {
+        max-width: 50%;
+      }
+      p {
+        font-size: 1.3rem;
+        line-height: 2rem;
+      }
+      .read {
+        font-size: 1rem;
+        color: #333;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://source.unsplash.com/7omHUGhhmZ0/400x400" />
+    <div class="nav">
+      <h1>John's Blog</h1>
+      <ul>
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Best Poems</a></li>
+        <li><a href="#">Worst Poems</a></li>
+      </ul>
+    </div>
+  </header>
+  <article>
+    <h2>VHS umami pop-up trust fund</h2>
+    <p>
+      Marfa church-key kitsch bicycle rights, 8-bit mixtape cardigan gentrify
+      Echo Park. Street art swag brunch, next level roof party Schlitz hella
+      organic keffiyeh selfies. You probably haven't heard of them polaroid
+      hashtag +1, meggings biodiesel Portland High Life cray tumblr retro...
+      <a class="read" href="#">Read more</a>
+    </p>
+    <button class="likeBtn"><i class="far fa-lg fa-thumbs-up"><span id="like1"></i></button>
+    <button><i class="far fa-lg fa-thumbs-down"><span id="dislike1"></i></button>
+  </article>
+  <article>
+    <h2>Sartorial synth Echo Park, roof party</h2>
+    <p>
+      chambray you probably haven't heard of them pour-over viral selvage umami
+      skateboard VHS post-ironic selfies. Wes Anderson gentrify fanny pack twee,
+      bicycle rights bitters blog keffiyeh plaid flannel. Tonx irony cliche
+      sustainable mlkshk bitters. Four loko leggings chambray Vice...
+      <a class="read" href="#">Read more</a>
+    </p>
+    <button><i class="far fa-lg fa-thumbs-up"><span id="like2"></i></button>
+    <button><i class="far fa-lg fa-thumbs-down"><span id="dislike2"></i></button>
+  </article>
+  <article>
+    <h2>Forage food truck keytar master cleanse</h2>
+    <p>
+      ethical thundercats sustainable locavore quinoa Neutra. Aesthetic tacky
+      sweater single-origin coffee, bicycle rights organic lo-fi street art
+      american apparel ennui four loko ethnic Brooklyn small batch. Forage YOLO
+      polaroid... <a class="read" href="#">Read more</a>
+    </p>
+    <button>
+      <i class="far fa-lg fa-thumbs-up"><span id="like3"></span></i>
+    </button>
+    <button><i class="far fa-lg fa-thumbs-down"><span id="dislike3"></i></button>
+  </article>
+  <script>
+    
+    const likeBtn = document.getElementsByClassName('likeBtn');
+    const like_1 = document.getElementById('like1');
+    const like_2 = document.getElementById('like2');
+    const like_3 = document.getElementById('like3');
+    const dislike_1 = document.getElementById('dislike1');
+    const dislike_2 = document.getElementById('dislike2');
+    const dislike_3 = document.getElementById('dislike3');
+
+    // Functions to generate random numbers of Likes/Dislikes (Used as a stub of database data)  
+    function generateRandNum(max, min) {
+        return Math.floor(Math.random() * (max - min) + min);
+    };
+
+    function likesAdding(x) {
+    return x.innerText = " " + generateRandNum(50, 80);
+    };
+    function dislikesAdding(x) {
+      return x.innerText = " " + generateRandNum(5, 12);
+    };
+
+// functions call to generate the data
+    likesAdding(like_1);
+    likesAdding(like_2);
+    likesAdding(like_3);
+    dislikesAdding(dislike_1);
+    dislikesAdding(dislike_2);
+    dislikesAdding(dislike_3);
+
+// adding functionality to the buttons
+    like_1.addEventListener("click", hitLike);
+    like_2.addEventListener("click", hitLike);
+    like_3.addEventListener("click", hitLike);
+    dislike_1.addEventListener("click", hitLike);
+    dislike_2.addEventListener("click", hitLike);
+    dislike_3.addEventListener("click", hitLike);
+      
+    let count = 0;
+    function hitLike(x) {
+      count++;
+      if (count%2 == 0){
+        // this.innerText = parseInt(this.innerText) - 1;
+        this.innerText = " " + (parseInt(this.innerText) - 1);
+      } else {
+        this.innerText = " " + (parseInt(this.innerText) + 1);
+      }
+      
+    }
+    
+  </script>
+</body>
