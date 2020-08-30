@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/assets/jquery.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        position: relative;
+      }
+      footer {
+        position: absolute;
+        bottom: -60px;
+        width: 100vw;
+      }
+      header {
+        position: relative;
+        color: #fff;
+        background: #303030;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: 2;
+      }
+      header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: url('https://source.unsplash.com/XujShJrrmCM');
+        background-position-x: 95%;
+        background-position-y: 50%;
+        background-size: auto;
+        opacity: 0.7;
+      }
+      header .showcase-content {
+        margin-bottom: 70px;
+        z-index: 1;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+      body,
+      .option p {
+        font-family: 'Staatliches', cursive;
+      }
+      header p {
+        font-size: 0.8rem;
+        margin-bottom: 40px;
+      }
+
+      .button {
+        color: #fff;
+        padding: 10px 30px;
+        border: 1px solid #fff;
+        margin: 40px 0;
+        text-decoration: none;
+      }
+      .button:hover {
+        background: linear-gradient(
+          30deg,
+          rgba(51, 51, 51, 0.4),
+          rgba(255, 255, 255, 0.4)
+        );
+      }
+      .container {
+        width: 85%;
+        margin: 0 auto;
+      }
+      .container-a {
+        width: 85%;
+        margin: 0 auto;
+        font-family: 'Lato', 'Arial', sans-serif;
+        padding: 20px 0;
+      }
+      .container-a p {
+        color: #303030;
+      }
+      .price {
+        float: right;
+      }
+      #section-a {
+        background: #f4f4f4;
+      }
+      .option {
+        color: #fff;
+        box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.5);
+        position: relative;
+        margin-bottom: 20px;
+        height: 40vh;
+      }
+      .option p {
+        padding: 10px;
+        width: 100%;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 1);
+        background: #333;
+        background: linear-gradient(
+          bottom,
+          rgba(51, 51, 51, 1),
+          rgba(51, 51, 51, 0.4)
+        );
+        background: -webkit-linear-gradient(
+          bottom,
+          rgba(51, 51, 51, 1),
+          rgba(51, 51, 51, 0.4)
+        );
+        background: -moz-linear-gradient(
+          bottom,
+          rgba(51, 51, 51, 1),
+          rgba(51, 51, 51, 0.4)
+        );
+        text-align: justify;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        height: 40px;
+        transition: height 0.5s;
+        -webkit-transition: height 0.5s;
+        -moz-transition: height 0.5s;
+      }
+      small {
+        visibility: hidden;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        display: block;
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+
+      #option_1 {
+        background: url('https://source.unsplash.com/ssj9fcKnkFQ');
+        background-position: center;
+        background-size: cover;
+      }
+      #option_2 {
+        background: url('https://source.unsplash.com/olA1o3UlNjk');
+        background-position: center;
+        background-size: cover;
+      }
+      #option_3 {
+        background: url('https://source.unsplash.com/Am6DHuyQBA8');
+        background-position: center;
+        background-size: cover;
+      }
+
+      .show-description p {
+        height: 150px;
+      }
+      .show-description small {
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.8s ease-in-out;
+      }
+
+      .copyright {
+        background: #303030;
+        color: #fff;
+        height: 50px;
+        text-align: center;
+        padding: 15px;
+      }
+      /* small tablet size */
+      @media screen and (min-width: 620px) {
+        h1 {
+          font-size: 3rem;
+        }
+        .container-a {
+          padding: 30px 0;
+        }
+        .container-a,
+        .container {
+          width: 75%;
+        }
+        .option {
+          height: 400px;
+          margin: 40px 0 60px 0;
+        }
+        .option p {
+          font-size: 1.8rem;
+          min-height: 60px;
+        }
+        small {
+          visibility: hidden;
+          margin-top: 10px;
+          font-size: 1rem;
+          display: block;
+          opacity: 0;
+          transition: all 0.4s ease;
+        }
+      }
+
+      /* Large tablet size and laptops */
+      @media screen and (min-width: 960px) {
+        h1 {
+          font-size: 4rem;
+        }
+        header::before {
+          background-size: cover;
+        }
+        header p {
+          font-size: 1.5rem;
+          margin-bottom: 40px;
+        }
+
+        .button {
+          padding: 20px 50px;
+          border: 2px solid #fff;
+          margin: 50px 0;
+          font-size: 1.5rem;
+        }
+        .container-a {
+          font-size: 1.5rem;
+        }
+        .option {
+          height: 500px;
+        }
+        .option p {
+          font-size: 2rem;
+          min-height: 60px;
+        }
+      }
+      /* desktops */
+      @media screen and (min-width: 1200px) {
+        .container,
+        .container-a {
+          max-width: 50vw;
+        }
+        h1 {
+          font-size: 4rem;
+        }
+        .option {
+          min-height: 500px;
+        }
+
+        .copyright {
+          font-size: 1.5rem;
+          height: auto;
+          padding: 30px;
+        }
+      }
+    </style>
+    <title>THE BEACHES</title>
+  </head>
+  <body>
+    <header id="showcase">
+      <div class="showcase-content">
+        <h1>Welcome To The Beaches</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />Modi
+          sed quos illum dignissimos!.
+        </p>
+        <a href="#section-a" class="button">see the options</a>
+      </div>
+    </header>
+    <section id="section-a">
+      <div class="container-a">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nobis,
+          molestiae odit cupiditate sunt necessitatibus deserunt delectus alias
+          incidunt excepturi ipsa vel expedita maiores minus sapiente velit
+          officia impedit veritatis maxime neque sit dicta? Perferendis ipsum
+          doloremque mollitia. Iste debitis ipsum ut voluptatem cupiditate sequi
+          doloribus fugiat rem. Nemo, molestiae.
+        </p>
+      </div>
+    </section>
+    <div class="container">
+      <div id="option_1" class="option">
+        <p>
+          LUX South Ari Atol<span class="price">$374</span>
+          <small>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+            alias enim esse ab placeat voluptates aliquid veniam molestiae
+            impedit, quas omnis tempora nam pariatur corrupti nemo inventore
+            ipsum error, doloremque voluptatem laborum. Sed, explicabo esse!
+          </small>
+        </p>
+      </div>
+      <div id="option_2" class="option">
+        <p>
+          Furaveri Maldives<span class="price">$284</span>
+          <small>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+            alias enim esse ab placeat voluptates aliquid veniam molestiae
+            impedit, quas omnis tempora nam pariatur corrupti nemo inventore
+            ipsum error, doloremque voluptatem laborum. Sed, explicabo esse!
+          </small>
+        </p>
+      </div>
+      <div id="option_3" class="option">
+        <p>
+          Paradise Island Resort<span class="price">$351</span>
+          <small>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+            alias enim esse ab placeat voluptates aliquid veniam molestiae
+            impedit, quas omnis tempora nam pariatur corrupti nemo inventore
+            ipsum error, doloremque voluptatem laborum. Sed, explicabo esse!
+          </small>
+        </p>
+      </div>
+    </div>
+    <footer>
+      <div>
+        <p class="copyright">Copyright &copy 2020 Oli Mostov</p>
+      </div>
+    </footer>
+
+    <script>
+      // Navigation scroll
+      // Select all links with hashes
+      $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function (event) {
+          // On-page links
+          if (
+            location.pathname.replace(/^\//, '') ==
+              this.pathname.replace(/^\//, '') &&
+            location.hostname == this.hostname
+          ) {
+            // Figure out element to scroll to
+            var target = $(this.hash);
+            target = target.length
+              ? target
+              : $('[name=' + this.hash.slice(1) + ']');
+            // Does a scroll target exist?
+            if (target.length) {
+              // Only prevent default if animation is actually gonna happen
+              event.preventDefault();
+              $('html, body').animate(
+                {
+                  scrollTop: target.offset().top,
+                },
+                1000
+                // function () {
+                //   // Callback after animation
+                //   // Must change focus!
+                //   var $target = $(target);
+                //   $target.focus();
+                //   if ($target.is(':focus')) {
+                //     // Checking if the target was focused
+                //     return false;
+                //   } else {
+                //     $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                //     $target.focus(); // Set focus again
+                //   }
+                // }
+              );
+            }
+          }
+        });
+      $('.option').on('click', function () {
+        $(this).toggleClass('show-description');
+      });
+    </script>
+  </body>
+</html>

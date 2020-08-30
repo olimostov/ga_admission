@@ -15,6 +15,9 @@
       box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
     }
+    html, body {
+      height: 100%;
+    }
     header {
       text-align: center;
       color: #fff;
@@ -59,8 +62,90 @@
       font-size: 0.7rem;
       color: #333;
     }
-    ul {
-      padding: 10px;
+    #container {
+      min-height: 100%;
+    }
+    .footer-message {
+      padding: 30px 0 10px 0;
+      background:#333;
+      text-align: center;
+      position: sticky;
+      bottom: 0%; 
+    }
+    .footer-message p {
+      color: #FFF;
+      
+      margin: 0;
+    }
+    .footer-message ul {
+      padding: 20px 0;
+      /* transform: translate(-50%, -50%); */
+
+    }
+    .footer-message ul li {
+      /* Maybe need to change to more lighter grey */
+      color: #484848;
+      text-shadow: none;
+      animation: animate 1s infinite linear;
+    }
+    @keyframes animate {
+      0%
+      {
+        color: #484848;
+        text-shadow: none;
+      }
+      18%
+      {
+        color: #484848;
+        text-shadow: none;
+      }
+      20%
+      {
+        color: #fff900;
+        text-shadow: 0 0 7px #fff900, 0 0 20px #fff900;
+      }
+      30%
+      {
+        color: #484848;
+        text-shadow: none;
+      }
+      35%
+        {
+        color: #fff900;
+        text-shadow: 0 0 7px #fff900, 0 0 20px #fff900;
+      }
+      70%
+      {
+        color: #484848;
+        text-shadow: none;
+      }
+      85%
+        {
+        color: #fff900;
+        text-shadow: 0 0 7px #fff900, 0 0 20px #fff900;
+      }
+      390%
+      {
+        color: #484848;
+        text-shadow: none;
+      }
+      100%
+      {
+        color: #484848;
+        text-shadow: none;
+      }
+    }
+    .footer-message ul li:nth-child(1) {
+      animation-delay: .4s;
+    }
+    .footer-message ul li:nth-child(2) {
+      animation-delay: .2s;
+    }
+    .footer-message ul li:nth-child(3) {
+      animation-delay: .6s;
+    }
+    .footer-message ul li:nth-child(4) {
+      animation-delay: .8s;
     }
     li {
       display: inline;
@@ -71,7 +156,7 @@
     article {
       max-width: 70%;
       padding: 20px;
-      margin: 0 auto;
+      margin: 20px auto;
     }
     button {
       padding: 5px 20px;
@@ -123,6 +208,7 @@
       </ul>
     </div>
   </header>
+  <div id="container">
   <article>
     <h2>VHS umami pop-up trust fund</h2>
     <p>
@@ -160,6 +246,19 @@
     </button>
     <button><i class="far fa-lg fa-thumbs-down"><span id="dislike3"></i></button>
   </article>
+</div>
+<div class="footer-message">
+  <p>JavaScript doesn't work on GA platform. However, everything works</p>
+  <a class="link" href="https://olimostov.github.io/ga_admission/GA_Task2/" target="_blank"><ul>
+    <li>H</li>
+    <li>E</li>
+    <li>R</li>
+    <li>E</li>
+  </ul></a>
+  <div>
+    <p>Copyright &copy; 2020, All Rights Reserved</p>
+  </div>
+</div>
   <script>
     
     const likeBtn = document.getElementsByClassName('likeBtn');
@@ -202,9 +301,10 @@
     function hitLike(x) {
       count++;
       if (count%2 == 0){
-        // this.innerText = parseInt(this.innerText) - 1;
+        // Post has been liked already. The number of likes will be decreased
         this.innerText = " " + (parseInt(this.innerText) - 1);
       } else {
+        // Post hasn't been liked yet. The number of likes will be increased
         this.innerText = " " + (parseInt(this.innerText) + 1);
       }
       
